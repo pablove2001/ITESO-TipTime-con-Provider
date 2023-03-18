@@ -7,18 +7,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final model = Provider.of<TipTimeProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tip time'),
+        title: const Text('Tip time'),
       ),
       body: ListView(
         children: [
-          SizedBox(height: 14),
+          const SizedBox(height: 14),
           ListTile(
             leading: Icon(Icons.room_service),
             title: Padding(
               padding: EdgeInsets.only(right: 24),
               child: TextField(
+                controller: context.watch<TipTimeProvider>().costController,
                 decoration: InputDecoration(
                   labelText: 'Cost of service',
                   border: OutlineInputBorder(),
@@ -27,7 +29,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: Icon(Icons.dinner_dining),
             title: Text("How was the service?"),
           ),
@@ -48,29 +50,41 @@ class HomePage extends StatelessWidget {
                             .setSelectedRadio(newVal);
                       },
                     ),
-                    title: Text("${e.value}"),
+                    title: Text(e.value),
                   ),
                 )
                 .toList(),
           ),
-          Text("Aqui agregar el GRUPO de radio buttons"),
           SwitchListTile(
-            secondary: Icon(Icons.credit_card),
-            title: Text("Round up tip"),
-            value: context.watch<TipTimeProvider>().isSelected,
+            secondary: const Icon(Icons.credit_card),
+            title: const Text("Round up tip"),
+            value: context.watch<TipTimeProvider>().getIsSelected,
             onChanged: (newVal) {
-              // _isSelected = newVal;
               context.read<TipTimeProvider>().setIsSelected(newVal);
             },
           ),
           MaterialButton(
             color: Colors.green,
-            child: Text("CALCULATE"),
+            child: const Text("CALCULATE"),
             onPressed: () {
-              context.read<TipTimeProvider>().tipCalculation(12);
+              context.read<TipTimeProvider>().tipCalculation(context);
             },
           ),
-          Text("Tip amount: \$${context.watch<TipTimeProvider>().tipAmount}"),
+          const SizedBox(
+            height: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  "Tip amount: \$${context.watch<TipTimeProvider>().getTipAmount}",
+                  style: const TextStyle(fontSize: 16),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
