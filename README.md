@@ -1,17 +1,31 @@
-# calandoprov
 
-A new Flutter project.
+<h1 align="center">Tarea 5 | TipTime con Provider</h1>
 
-## Getting Started
+### Temas plasmados en la app:
+- **[Material design](http://material.io/)**
+- Aprovecha de manera óptima el espacio en pantalla
+- Provider
+- Text fields, radio group, primary color, formateo de strings y estados 
+- Interacción del usuario
 
-This project is a starting point for a Flutter application.
+### Lo que me costó más trabajo:
+- Lo que más me costó hacer fue encontrar el error de porque no jalaba el controller y todo fue porque tenia al widget en constante.
 
-A few resources to get you started if this is your first Flutter project:
+### Lo que aprendí:
+- A usar el provider con diferentes widgets en Flutter.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Extras:
+- Alerta cuando los datos estan vacios. 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# ITESO-TipTime-con-Provider
+### Screenshots de la app:
+- Error en pantalla en caso de datos nulos:
+
+![image](https://user-images.githubusercontent.com/52970365/226084696-2686153f-cc78-4143-97b5-98c927333351.png)
+
+- Sin redondeo:
+
+![image](https://user-images.githubusercontent.com/52970365/226084744-527f0c09-6d19-4126-95f6-a28bc92205ae.png)
+
+- Con redondeo:
+
+![image](https://user-images.githubusercontent.com/52970365/226084760-baea2e2d-ac11-4850-b300-073d88e096c8.png)
